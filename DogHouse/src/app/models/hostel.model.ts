@@ -1,8 +1,10 @@
-export class Hostel {
+export class HostelForm {
     id: any;
     hostelName: string;
     address: string;
     landmark: string;
     phNumber: string;
     mobileNumber: string;
+    hosteltype:string;
+    hostelpic:string;
 }
