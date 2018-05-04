@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { HostelComponent } from './hostel/hostel.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -23,6 +24,7 @@ const myRoots: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' , canActivate: [AuthGuard]},
   { path: 'register', component: RegistrationComponent },
   { path: 'booking', component: BookingComponent },
+  { path: 'hostel', component: HostelComponent },
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
@@ -35,7 +37,8 @@ const myRoots: Routes = [
     RegistrationComponent,
     LoginComponent,
     EqualValidatorDirective,
-    BookingComponent
+    BookingComponent,
+    HostelComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,

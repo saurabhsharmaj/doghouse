@@ -1,0 +1,48 @@
+﻿<div class="container" style="margin-top:100px;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-4 col-sm-4 center-block ">
+            <mat-card>
+                <mat-card-header>
+                    <img mat-card-avatar src="../../../assets/images/hostel-icon.png">
+                    <mat-card-title>Hostel</mat-card-title>
+                    <mat-card-subtitle>Trust us for your data, and add Hostel</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <form #hostelForm="ngForm" (ngSubmit)="register(hostel)">
+                        <div class="signup-fields">
+                            <div class="form-group" [class.has-error]="hostelName.invalid && hostelName.touched" [class.has-success]="hostelName.valid">
+                                <input type="text" [(ngModel)]="hostel.hostelName" #hostelName="ngModel" required name="hostelName" class="form-control" placeholder="Hostel Name">
+                                <span class="help-block" *ngIf="hostelName.errors?.required && hostelName.touched">
+                  Hostel Name is required
+                </span>
+                            </div>
+                            <div class="form-group" [class.has-error]="address.invalid && address.touched" [class.has-success]="address.valid">
+                                <input type="text" [(ngModel)]="hostel.address" name="address" class="form-control" placeholder="Address" #address="ngModel">
+                                <span class="help-block" *ngIf="address.errors?.required && address.touched">
+                  Address is required
+                </span>
+
+                            </div>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="hostel.landmark" required class="form-control" name="landmark" placeholder="Landmank" #landmark="ngModel">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="hostel.phNumber" required class="form-control" name="phNumber" placeholder="phone no" #phNumber="ngModel">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="hostel.mobileNumber" required class="form-control" name="mobileNumber" placeholder="mobile no" #mobileNumber="ngModel">
+                            </div>
+
+                            <div>
+                                <button class="btn btn-primary btn-block" type="submit" [disabled]="hostelForm.invalid">Save</button>
+                                <button class="btn btn-primary btn-block">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
