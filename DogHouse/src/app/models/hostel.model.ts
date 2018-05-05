@@ -1,4 +1,4 @@
-export class HostelForm {
+export class hostel{
     id: any;
     hostelName: string;
     address: string;
