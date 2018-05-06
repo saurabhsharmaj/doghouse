@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user = new User();
+ 
   constructor(private newService :CommonService,private myRoute: Router) {
   }
 

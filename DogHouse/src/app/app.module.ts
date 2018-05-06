@@ -38,6 +38,7 @@ const myRoots: Routes = [
     NavComponent,
     RegistrationComponent,
     LoginComponent,
+    UserComponent,
     EqualValidatorDirective,
     BookingComponent,
     HostelComponent
