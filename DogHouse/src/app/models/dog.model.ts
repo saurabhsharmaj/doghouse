@@ -1,6 +1,6 @@
 export class dogDetail {
     id: any;
-    ownerId:any;
+    owner:User;
     breadId:any;
     age:string;
     spacialmarks: string;

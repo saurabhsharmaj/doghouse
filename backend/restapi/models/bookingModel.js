@@ -10,12 +10,8 @@ var Schema = new Schema({
 
     email: { type: String, Required: 'User email cannot be left blank.' },
 
-    password: { type: String, Required: 'User password cannot be left blank' },
-
-    roles :{type:Object},
-
-    groups :{type:Object}
+    password: { type: String, Required: 'User password cannot be left blank' }
 
 });
 
-module.exports = mongoose.model('Users', Schema);
+module.exports = mongoose.model('Bookings', Schema);

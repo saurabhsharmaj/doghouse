@@ -1,9 +1,10 @@
-export class booking {
+export class Booking {
     id: any;
-    hostelId:any;
+    user:User;
+    hostel:Hostel;
     bDate:Date;
     bTime:string;
-    dogId: string;
+    dog: Dog;
     checkoutdate: string;
     checkouttime: string;
    

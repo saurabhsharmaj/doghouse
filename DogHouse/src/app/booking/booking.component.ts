@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { booking } from '../models/dogBooking.model';
+import { Booking } from '../models/dogBooking.model';
 import {CommonService} from '../common.service';
 import {Router} from '@angular/router';
 
@@ -10,10 +10,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
-
-  constructor() { }
+  booking = new Booking();
+  constructor(private newService :CommonService,private myRoute: Router) {
+  }
 
   ngOnInit() {
   }
 
+  register(booking: Booking): void{
+    console.log(booking);
+  }
 }
