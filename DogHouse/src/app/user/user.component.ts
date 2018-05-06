@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   private users: Array<User> = [];
   private anyErrors:boolean = false;
   private finished:boolean = false;
-  
+  p: number = 1;
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }
