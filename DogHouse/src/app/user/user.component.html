@@ -17,8 +17,16 @@
                   <tr *ngFor="let user of users">
                     <td>{{ user.userName }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.roles[0].roleName }}</td>
-                    <td>{{ user.groups[0].groupName }}</td>
+                    <td>
+                        <span *ngFor="let role of user.roles">
+                            {{ role.roleName }}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngFor="let group of user.groups">
+                            {{ group.groupName }}
+                        </span>
+                    </td>
                     <td>Show Detail</td>
                   </tr>
                 </tbody>

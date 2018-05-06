@@ -10,7 +10,11 @@ import {Router} from '@angular/router';
 })
 export class UserComponent implements OnInit {
   private users: Array<User> = [];
-  constructor(private newService :CommonService,private myRoute: Router) {
+  private anyErrors:boolean = false;
+  private finished:boolean = false;
+  
+  constructor(private newService :CommonService,
+              private myRoute: Router) {
   }
 
   ngOnInit() {
