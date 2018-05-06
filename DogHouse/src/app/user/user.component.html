@@ -8,6 +8,8 @@
                   <tr>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Group</th>
+                    <th>Role</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -15,6 +17,8 @@
                   <tr *ngFor="let user of users">
                     <td>{{ user.userName }}</td>
                     <td>{{ user.email }}</td>
+                    <td>{{ user.roles[0].roleName }}</td>
+                    <td>{{ user.groups[0].groupName }}</td>
                     <td>Show Detail</td>
                   </tr>
                 </tbody>
