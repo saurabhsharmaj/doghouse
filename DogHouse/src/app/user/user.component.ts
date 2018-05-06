@@ -13,17 +13,18 @@ export class UserComponent implements OnInit {
   private anyErrors:boolean = false;
   private finished:boolean = false;
   p: number = 1;
+  loading: boolean;
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }
 
   ngOnInit() {
+    this.loading=true;
     this.newService.getUsers()
     .subscribe(data =>  {
-     //users=data;
      this.users=data;
-      console.log(JSON.stringify(data));
-      
+      //console.log(JSON.stringify(data));
+      this.loading=false;
     },
     error => this.anyErrors = true,
     () => this.finished = true)
