@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
      this.users=data;
       console.log(JSON.stringify(data));
       
-    }
+    },
     error => this.anyErrors = true,
     () => this.finished = true)
   }
