@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EqualValidatorDirective } from './shared/equal.validator.directive';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -46,7 +46,7 @@ const myRoots: Routes = [
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule,HttpModule,
-    RouterModule.forRoot(myRoots)
+    NgxPaginationModule,RouterModule.forRoot(myRoots)
   ],
   providers: [AuthService, AuthGuard,CommonService],
   bootstrap: [AppComponent]
