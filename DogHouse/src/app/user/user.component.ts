@@ -10,14 +10,14 @@ import {Router} from '@angular/router';
 })
 export class UserComponent implements OnInit {
  
-  constructor(users:User[],private newService :CommonService,private myRoute: Router) {
+  constructor(private newService :CommonService,private myRoute: Router) {
   }
 
   ngOnInit() {
     this.newService.getUsers()
     .subscribe(data =>  {
-     users=data;
-      console.log(data.length);
+     //users=data;
+      console.log(data);
     })
   }
 
