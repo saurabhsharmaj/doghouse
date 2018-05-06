@@ -17,9 +17,12 @@ export class UserComponent implements OnInit {
     this.newService.getUsers()
     .subscribe(data =>  {
      //users=data;
-     this.users.push(data[0]);
-      console.log(data);
-    })
+     this.users=data;
+      console.log(users);
+      
+    }
+    error => this.anyErrors = true,
+    () => this.finished = true)
   }
 
 }
