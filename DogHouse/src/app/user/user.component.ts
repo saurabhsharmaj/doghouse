@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
- 
+  private users: Array<User> = [];
   constructor(private newService :CommonService,private myRoute: Router) {
   }
 
@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
     this.newService.getUsers()
     .subscribe(data =>  {
      //users=data;
+     this.users.push(data[0]);
       console.log(data);
     })
   }
