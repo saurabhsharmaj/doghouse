@@ -13,6 +13,7 @@ import { User } from '../models/user.model';
 export class LoginComponent implements OnInit {
   user = new User();
   form;
+  errorMsg:String='';
   constructor(private fb: FormBuilder,private newService :CommonService,
     private myRoute: Router,
     private auth: AuthService) {
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
           this.ngOnInit();
         } else {
           this.myRoute.navigate(["login"]);
+          this.errorMsg="Invalid Username or password.";
           this.ngOnInit();
         }
     })
