@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
     .subscribe(data =>  {
      //users=data;
      this.users=data;
-      console.log(users);
+      console.log(JSON.stringify(data));
       
     }
     error => this.anyErrors = true,

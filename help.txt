@@ -1,0 +1,4 @@
+mongoexport --db newdb -c restaurants --out newdbexport.json
+
+
+[{"_id":"5aeebe5fbd266e9c5262b2fa","userName":"saurabh","email":"saurabh.find@gmail.com","password":"saurabh123","roles":[{"description":"administrator role","roleCode":"admin","roleName":"admin"}],"groups":[{"description":"administrator role","groupCode":"admin","groupName":"admin"}]},{"_id":"5aef1cf470bb932d2992d0bb","userName":"jagdish","email":"jagdishkumawat07@gmail.com","password":"jagdish123","roles":[{"roleName":"admin","roleCode":"admin","description":"administrator role"}],"groups":[{"groupName":"admin","groupCode":"admin","description":"administrator role"}]}]
