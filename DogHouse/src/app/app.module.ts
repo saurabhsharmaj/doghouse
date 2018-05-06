@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 import { HostelComponent } from './hostel/hostel.component';
 
 import { AuthService } from './auth.service';
@@ -26,6 +27,7 @@ const myRoots: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'hostel', component: HostelComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'users', component: UserComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 

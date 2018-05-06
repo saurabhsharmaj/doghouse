@@ -1,4 +1,4 @@
-export class hostelroom {
+export class HostelType {
     id: any;
     hTitel: string;
     hid: string;

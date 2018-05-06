@@ -1,4 +1,5 @@
-export class dogDetail {
+import { User } from './user.model';
+export class DogDetail {
     id: any;
     owner:User;
     breadId:any;

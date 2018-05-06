@@ -1,3 +1,4 @@
+import { HostelType } from './hostelType.model';
 export class Hostel{
     id: any;
     hostelName: string;
@@ -5,6 +6,6 @@ export class Hostel{
     landmark: string;
     phNumber: string;
     mobileNumber: string;
-    hosteltype:string;
+    hosteltype:HostelType;
     hostelpic:string;
 }
