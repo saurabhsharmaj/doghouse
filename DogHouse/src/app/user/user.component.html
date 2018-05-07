@@ -19,12 +19,12 @@
                     <td>{{ user.email }}</td>
                     <td>
                         <span *ngFor="let role of user.roles">
-                            {{ role.roleName }}
+                            {{ role.roleName }},
                         </span>
                     </td>
                     <td>
                         <span *ngFor="let group of user.groups">
-                            {{ group.groupName }}
+                            {{ group.groupName }},
                         </span>
                     </td>
                     <td>Show Detail</td>

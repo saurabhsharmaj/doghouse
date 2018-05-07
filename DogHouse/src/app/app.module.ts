@@ -15,6 +15,7 @@ import { NavComponent } from './nav/nav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { PetComponent } from './pet/pet.component';
 import { HostelComponent } from './hostel/hostel.component';
 
 import { AuthService } from './auth.service';
@@ -28,6 +29,7 @@ const myRoots: Routes = [
   { path: 'hostel', component: HostelComponent },
   { path: 'login', component: LoginComponent},
   { path: 'users', component: UserComponent},
+  { path: 'pet', component: PetComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
@@ -39,6 +41,7 @@ const myRoots: Routes = [
     RegistrationComponent,
     LoginComponent,
     UserComponent,
+    PetComponent,
     EqualValidatorDirective,
     BookingComponent,
     HostelComponent
