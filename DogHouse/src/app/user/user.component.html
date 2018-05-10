@@ -36,21 +36,10 @@
                             </span>
                     </div>
 
-
-                    <div class="form-group" [class.has-error]="userRoles.invalid && userRoles.touched" [class.has-success]="userRoles.valid">
-                        <input type="text" [(ngModel)]="user.userRoles" #userRoles="ngModel" required name="userRoles" class="form-control" placeholder="User Role">
-                        <span class="help-block" *ngIf="userRoles.errors?.required && userRoles.touched">
-                      User Role is required
-                    </span>
-                    </div>
+                    <app-group></app-group>
+                    <app-role></app-role>
 
 
-                    <div class="form-group" [class.has-error]="userGroups.invalid && userGroups.touched" [class.has-success]="userGroups.valid">
-                        <input type="text" [(ngModel)]="user.userGroups" #userGroups="ngModel" required name="userGroups" class="form-control" placeholder="User Group">
-                        <span class="help-block" *ngIf="userGroups.errors?.required && userGroups.touched">
-                        User Group is required
-                    </span>
-                    </div>
                     <div>
                         <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">Signup</button>
                     </div>

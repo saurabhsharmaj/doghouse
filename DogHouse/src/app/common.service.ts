@@ -28,4 +28,14 @@ export class CommonService {
             .map((response: Response) =>response.json())
   }  
   
+
+  getGroups(){
+    return this.http.get('http://localhost:3000/groups/')
+            .map((response: Response) => response.json(),error => { console.error(error)})
+  }
+
+  getRoles(){
+    return this.http.get('http://localhost:3000/roles/')
+            .map((response: Response) => response.json(),error => { console.error(error)})
+  }
 }

@@ -1,0 +1,5 @@
+﻿<select multiple name="selectedRoles" [ngModel]="user.userRoles">
+    <option *ngFor="let role of roles" [ngValue]="role.roleCode">
+            {{ role.roleName }}
+    </option>
+</select>

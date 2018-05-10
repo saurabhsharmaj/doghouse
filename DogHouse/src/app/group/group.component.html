@@ -1,0 +1,5 @@
+﻿<select multiple name="selectedTechs" [ngModel]="user.userGroups">
+        <option *ngFor="let group of groups" [ngValue]="group.groupCode">
+                {{ group.groupName }}
+        </option>
+    </select>

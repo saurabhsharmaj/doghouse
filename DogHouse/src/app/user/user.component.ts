@@ -31,6 +31,11 @@ export class UserComponent implements OnInit {
     () => this.finished = true)
   }
 
+  register(user: User): void{
+    console.log(user);    
+   
+  }
+
 }
 
 

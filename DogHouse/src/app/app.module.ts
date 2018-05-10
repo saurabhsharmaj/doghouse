@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { PetComponent } from './pet/pet.component';
 import { HostelComponent } from './hostel/hostel.component';
+import { GroupComponent } from './group/group.component';
+import { RoleComponent } from './role/role.component';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -42,6 +44,8 @@ const myRoots: Routes = [
     LoginComponent,
     UserComponent,
     PetComponent,
+    GroupComponent,
+    RoleComponent,
     EqualValidatorDirective,
     BookingComponent,
     HostelComponent
