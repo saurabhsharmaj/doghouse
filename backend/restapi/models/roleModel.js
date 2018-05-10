@@ -6,9 +6,9 @@ var Schema = mongoose.Schema;
 
 var Schema = new Schema({
 
-    roleName: { type: String, Required: 'User name cannot be left blank.' },
+    roleName: { type: String, Required: 'Role name cannot be left blank.' },
 
-    roleCode :{type:String},
+    roleCode: { type: String },
 
     description: { type: String }
 });

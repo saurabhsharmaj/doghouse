@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   private finished:boolean = false;
   p: number = 1;
   loading: boolean;
+  user = new User();
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }

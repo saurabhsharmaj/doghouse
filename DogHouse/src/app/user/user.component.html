@@ -1,40 +1,102 @@
 ﻿<div class="container" style="margin-top:100px;">
     <div class="row justify-content-center align-items-center">
-        <div class="col-lg-4 col-sm-4 center-block ">
+        <div class="col-lg-6 col-sm-6 right-block ">
+            <!--User Form -->
+            <form #regsiterForm="ngForm" (ngSubmit)="register(user)">
+                <div class="signup-fields">
+                    <div class="form-group" [class.has-error]="userName.invalid && userName.touched" [class.has-success]="userName.valid">
+                        <input type="text" [(ngModel)]="user.userName" #userName="ngModel" required name="userName" class="form-control" placeholder="User Name">
+                        <span class="help-block" *ngIf="userName.errors?.required && userName.touched">
+              User Name is required
+            </span>
+                    </div>
+                    <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+                        <input type="text" required [email]="user.email !== ''" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" #email="ngModel">
+                        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+              Email is required
+            </span>
+                        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+              Email is invalid
+            </span>
+                    </div>
+                    <div class="form-group" [class.has-error]="password.invalid && password.touched" [class.has-success]="password.valid">
+                        <input type="password" [(ngModel)]="user.password" required class="form-control" name="password" placeholder="Password" #password="ngModel">
+                        <span class="help-block" *ngIf="password.invalid && password.touched">
+              Password is required
+            </span>
+                    </div>
+                    <div class="form-group" [class.has-error]="confirmPasswordControl.invalid && confirmPasswordControl.touched" [class.has-success]="confirmPasswordControl.valid">
+                        <input type="password" required class="form-control" name="confirmPassword" appEqualValidator="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" #confirmPasswordControl="ngModel">
+                        <span class="help-block" *ngIf="confirmPasswordControl.errors?.required && confirmPasswordControl.touched">
+                              Confirm password is required
+                            </span>
+                        <span class="help-block" *ngIf="confirmPasswordControl.errors?.notEqual 
+                                                && confirmPasswordControl.touched && !confirmPasswordControl.errors?.required">
+                              Password doesn't match
+                            </span>
+                    </div>
+
+
+                    <div class="form-group" [class.has-error]="userRoles.invalid && userRoles.touched" [class.has-success]="userRoles.valid">
+                        <input type="text" [(ngModel)]="user.userRoles" #userRoles="ngModel" required name="userRoles" class="form-control" placeholder="User Role">
+                        <span class="help-block" *ngIf="userRoles.errors?.required && userRoles.touched">
+                      User Role is required
+                    </span>
+                    </div>
+
+
+                    <div class="form-group" [class.has-error]="userGroups.invalid && userGroups.touched" [class.has-success]="userGroups.valid">
+                        <input type="text" [(ngModel)]="user.userGroups" #userGroups="ngModel" required name="userGroups" class="form-control" placeholder="User Group">
+                        <span class="help-block" *ngIf="userGroups.errors?.required && userGroups.touched">
+                        User Group is required
+                    </span>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">Signup</button>
+                    </div>
+                </div>
+            </form>
+            <!-- End-->
+        </div>
+        <div class="col-lg-4 col-sm-4 right-block ">
             User List will be display here.
 
             <table class="table">
                 <thead>
-                  <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Group</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                  </tr>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Group</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of users | paginate: { itemsPerPage: 3, currentPage: p }">
-                    <td>{{ user.userName }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        <span *ngFor="let role of user.roles">
-                            {{ role.roleName }},
-                        </span>
-                    </td>
-                    <td>
-                        <span *ngFor="let group of user.groups">
-                            {{ group.groupName }},
-                        </span>
-                    </td>
-                    <td>Show Detail</td>
-                  </tr>
+                    <tr *ngFor="let user of users | paginate: { itemsPerPage: 3, currentPage: p }">
+                        <td>{{ user.userName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <span *ngFor="let role of user.roles">
+                                    {{ role.roleName }},
+                                </span>
+                        </td>
+                        <td>
+                            <span *ngFor="let group of user.groups">
+                                    {{ group.groupName }},
+                                </span>
+                        </td>
+                        <td>
+                            <span><a href="#">EDIT</a></span>
+                            <span><a href="#">DELETE</a></span>
+                        </td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
 
-              <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
         </div>
+
     </div>
 </div>

@@ -5,6 +5,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Product = require('./restapi/models/productModel'),
     User = require('./restapi/models/userModel'),
+    Role = require('./restapi/models/roleModel'),
+    Group = require('./restapi/models/groupModel'),
     bodyParser = require('body-parser');
 app.use(cors())
 
@@ -20,6 +22,12 @@ productRoute(app);
 
 var userRoute = require('./restapi/routes/userRoutes');
 userRoute(app);
+
+var roleRoute = require('./restapi/routes/roleRoutes');
+roleRoute(app);
+
+var groupRoute = require('./restapi/routes/groupRoutes');
+groupRoute(app);
 
 app.use(function(req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })
