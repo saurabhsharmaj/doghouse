@@ -20,8 +20,7 @@ export class GroupComponent implements OnInit {
     this.newService.getGroups()
     .subscribe(data =>  {
      this.groups=data;
-    }
-    )
+    })
   }
 
 }
