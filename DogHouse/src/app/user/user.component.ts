@@ -43,6 +43,9 @@ export class UserComponent implements OnInit {
       
   }
 
+  onEditUser(userId){
+    console.log(userId);
+  }
   ngOnInit() {
     this.user.userRoles=[];
     this.user.userGroups=[];

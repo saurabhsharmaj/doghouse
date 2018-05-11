@@ -65,6 +65,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Group</th>
@@ -74,6 +75,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let user of users | paginate: { itemsPerPage: 3, currentPage: p }">
+                        <td><img style="height: 50px;" mat-card-avatar src="../../../assets/images/bullet.jpg"></td>
                         <td>{{ user.userName }}</td>
                         <td>{{ user.email }}</td>
                         <td>
@@ -87,8 +89,8 @@
                                 </span>
                         </td>
                         <td>
-                            <span><a href="#">EDIT</a></span>
-                            <span><a href="#">DELETE</a></span>
+                            <span><a [routerLink]="['/users',user._id]">Edit</a></span>
+                            <span><a [routerLink]="['/users',user._id]">DELETE</a></span>
                         </td>
                     </tr>
                 </tbody>
