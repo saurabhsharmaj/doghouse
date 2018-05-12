@@ -45,6 +45,18 @@ export class UserComponent implements OnInit {
 
   onEditUser(userId){
     console.log(userId);
+    this.newService.getUser(userId).subscribe(data =>  {
+      console.log(data);
+      this.user=data[0];
+    });
+  }
+
+  onDeleteUser(userId){
+    console.log(userId);
+    this.newService.deleteUser(userId).subscribe(data =>  {
+      console.log("done");
+      this.ngOnInit();
+    });
   }
   ngOnInit() {
     this.user.userRoles=[];

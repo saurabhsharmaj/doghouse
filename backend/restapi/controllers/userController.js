@@ -31,9 +31,11 @@ exports.login = function(req, res) {
 };
 
 exports.getuser = function(req, res) {
-    User.findById(mongoose.Types.ObjectId(req.query.userId), function(err, user) {
+    console.log("Get User : " + req.query.userId + " ## " + mongoose.Types.ObjectId(req.query.userId));
+    User.find({ "_id": mongoose.Types.ObjectId(req.query.userId) }, function(err, user) {
         if (err)
             res.send(err);
+        console.log(user);
         res.json(user);
     });
 };
@@ -49,11 +51,13 @@ exports.update = function(req, res) {
 
 exports.delete = function(req, res) {
     var id = mongoose.Types.ObjectId(req.query.userId);
+    console.log("#DELETE# user id :" + id);
     User.remove({
         _id: id
     }, function(err, user) {
         if (err)
             res.send(err);
+        console.log("#delete# user:" + user);
         res.json({ message: 'User deleted successfully' });
     });
 };

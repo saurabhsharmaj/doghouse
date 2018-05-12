@@ -22,9 +22,15 @@ export class CommonService {
   getUsers(){
     return this.http.get('http://localhost:3000/users/')
             .map((response: Response) => response.json(),error => { console.error(error)})
-  }  
+  }
+  
+  getUser(userId){
+    return this.http.get('http://localhost:3000/users/'+userId+"?userId="+userId)
+            .map((response: Response) => response.json(),error => { console.error(error)})
+  }
+
  deleteUser(id){
-    return this.http.post('http://localhost:8080/api/deleteUser/',{'id': id})
+    return this.http.delete('http://localhost:3000/users/'+id+"?userId="+id)
             .map((response: Response) =>response.json())
   }  
   
