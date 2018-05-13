@@ -25,30 +25,28 @@ export class UserComponent implements OnInit {
       this.user.userGroups = [];
   }
 
-  onRoleChange(role, value){
-    console.log(role +" - "+value);
-    let index = this.user.userRoles.indexOf(role);
-    if(value)
-      this.user.userRoles.splice(1,0,role);
-    else
-      this.user.userRoles.splice(index,1);
+  onRoleChange(role, value) {
+    let index = this.user.userRoles.find(function (uRole) { uRole.roleCode == role.roleCode });
+    if (value) {
+      this.user.userRoles.splice(1, 0, role);
+    } else {
+      this.user.userRoles.splice(index, 1);
+    }
   }
 
-  onGroupChange(group,value){
-    console.log(group +" - "+value);
-    
-    let index = this.user.userGroups.indexOf(group);
-    if(value)
-      this.user.userGroups.splice(1,0,group);
-    else
-      this.user.userGroups.splice(index,1);
-      
+  onGroupChange(group, value) {
+    let index = this.user.userGroups.find(function (uGroup) { uGroup.groupCode == group.groupCode });
+    if (value) {
+      this.user.userGroups.splice(1, 0, group);
+    } else {
+      this.user.userGroups.splice(index, 1);
+    }
   }
 
   onEditUser(userId){
-    console.log(userId);
+   
     this.newService.getUser(userId).subscribe(data =>  {
-      console.log(data);
+      
       this.user=data[0];
       this.groups.forEach(group => {
         let index = -1;
@@ -58,7 +56,6 @@ export class UserComponent implements OnInit {
               }
             });
         group.checked = index != -1 ?true:false;
-        console.log(group);
       });
 
       this.roles.forEach(role => {
@@ -108,13 +105,13 @@ export class UserComponent implements OnInit {
   }
 
   register(user: User): void{
+    console.log(user);
     
     this.newService.updateUser(user)
     .subscribe(data =>  {
     this.ngOnInit();
     alert(user.userName +' updated sucessfully.');
     } );
-   
   }
 
 }
