@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
   onDeleteUser(userId){
     console.log(userId);
     this.newService.deleteUser(userId).subscribe(data =>  {
-      console.log("done");
+      alert(userId +" has been deleted.");
       this.ngOnInit();
     });
   }

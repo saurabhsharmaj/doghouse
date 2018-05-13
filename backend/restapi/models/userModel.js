@@ -12,9 +12,9 @@ var Schema = new Schema({
 
     password: { type: String, Required: 'User password cannot be left blank' },
 
-    roles :{type:Object},
+    userRoles: { type: Object },
 
-    groups :{type:Object}
+    userGroups: { type: Object }
 
 });
 

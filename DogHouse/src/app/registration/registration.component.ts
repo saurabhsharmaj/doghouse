@@ -2,6 +2,8 @@
 import { User } from '../models/user.model';
 import {CommonService} from '../common.service';
 import {Router} from '@angular/router';
+import { Role } from "../models/role.model";
+import { Group } from "../models/group.model";
 
 @Component({
   selector: 'app-registration',
@@ -10,19 +12,28 @@ import {Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   user = new User();
-  constructor(private newService :CommonService,private myRoute: Router) {
+  defaultRole = new Role();
+  defaultGroup = new Group();
+  constructor(private newService : CommonService, private myRoute: Router) {
+    this.defaultRole.roleCode = 'customer';
+    this.defaultRole.roleName = 'Customer';
+
+    this.defaultGroup.groupCode = 'external';
+    this.defaultGroup.groupName = 'External';
   }
 
   ngOnInit() {
   }
 
-  register(user: User): void{
-    console.log(user);    
+  register(user: User): void {
+    user.userRoles = [this.defaultRole];
+    user.userGroups = [this.defaultGroup];
+    console.log(user);
     this.newService.saveUser(user)
     .subscribe(data =>  {
-      this.myRoute.navigate(["login"]);
+      this.myRoute.navigate([ 'login' ]);
     this.ngOnInit();
-    })
+    } );
   }
 }
 

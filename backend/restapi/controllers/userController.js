@@ -13,6 +13,7 @@ exports.users = function(req, res) {
 
 exports.add = function(req, res) {
     var new_user = new User(req.body);
+    console.log("Going to add user:");
     console.log(req.body);
     new_user.save(function(err, user) {
         if (err)
