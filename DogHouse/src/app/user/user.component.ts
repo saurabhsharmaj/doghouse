@@ -81,6 +81,7 @@ export class UserComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.user = new User();
     this.loading=true;
     this.newService.getUsers()
     .subscribe(data =>  {
