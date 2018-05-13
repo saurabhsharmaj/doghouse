@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
   }
 
   onRoleChange(role, value) {
-    let index = this.user.userRoles.find(function (uRole) { uRole.roleCode == role.roleCode });
+    let index = this.user.userRoles.findIndex(uRole => uRole.roleCode === role.roleCode );
     if (value) {
       this.user.userRoles.splice(1, 0, role);
     } else {
@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
   }
 
   onGroupChange(group, value) {
-    let index = this.user.userGroups.find(function (uGroup) { uGroup.groupCode == group.groupCode });
+    let index = this.user.userGroups.findIndex(uGroup => uGroup.groupCode === group.groupCode );
     if (value) {
       this.user.userGroups.splice(1, 0, group);
     } else {
