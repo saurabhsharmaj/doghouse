@@ -19,10 +19,10 @@ export class UserComponent implements OnInit {
   p: number = 1;
   loading: boolean;
   user = new User();
-  user.userRoles=[];
-  user.userGroups=[];
   constructor(private newService :CommonService,
               private myRoute: Router) {
+      this.user.userRoles = [];
+      this.user.userGroups = [];
   }
 
   onRoleChange(role, value){
@@ -50,6 +50,26 @@ export class UserComponent implements OnInit {
     this.newService.getUser(userId).subscribe(data =>  {
       console.log(data);
       this.user=data[0];
+      this.groups.forEach(group => {
+        let index = -1;
+        this.user.userGroups.forEach(function(uGroup, i) {
+              if (group.groupCode===uGroup.groupCode ) {
+                index=i;
+              }
+            });
+        group.checked = index != -1 ?true:false;
+        console.log(group);
+      });
+
+      this.roles.forEach(role => {
+        let index = -1;
+        this.user.userRoles.forEach(function(uRole, i) {
+              if (role.roleCode===uRole.roleCode ) {
+                index=i;
+              }
+            });
+        role.checked = index != -1 ? true:false;
+      });
     });
   }
 
@@ -88,8 +108,11 @@ export class UserComponent implements OnInit {
 
   register(user: User): void{
     
-    console.log(user);
-
+    this.newService.updateUser(user)
+    .subscribe(data =>  {
+    this.ngOnInit();
+    alert(user.userName +' updated sucessfully.');
+    } );
    
   }
 

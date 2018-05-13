@@ -3,4 +3,5 @@ export class Group {
     groupCode: string;
     groupName: string;
     description: string;
+    checked: boolean;
 }

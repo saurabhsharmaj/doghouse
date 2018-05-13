@@ -13,6 +13,12 @@ export class CommonService {
     return this.http.post('http://localhost:3000/users/', user)
             .map((response: Response) =>response.json())
   }
+
+  updateUser(user){
+    return this.http.put('http://localhost:3000/users/'+user._id+"?userId="+user._id, user)
+            .map((response: Response) =>response.json())
+  }
+
   
   login(user){
     return this.http.post('http://localhost:3000/login/',user)
