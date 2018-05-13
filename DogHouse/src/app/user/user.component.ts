@@ -19,25 +19,27 @@ export class UserComponent implements OnInit {
   p: number = 1;
   loading: boolean;
   user = new User();
+  user.userRoles=[];
+  user.userGroups=[];
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }
 
-  onRoleChange(roleCode, value){
-    console.log(roleCode +" - "+value);
-    let index = this.user.userRoles.indexOf(roleCode);
+  onRoleChange(role, value){
+    console.log(role +" - "+value);
+    let index = this.user.userRoles.indexOf(role);
     if(value)
-      this.user.userRoles.splice(1,0,roleCode);
+      this.user.userRoles.splice(1,0,role);
     else
       this.user.userRoles.splice(index,1);
   }
 
-  onGroupChange(groupCode,value){
-    console.log(groupCode +" - "+value);
+  onGroupChange(group,value){
+    console.log(group +" - "+value);
     
-    let index = this.user.userGroups.indexOf(groupCode);
+    let index = this.user.userGroups.indexOf(group);
     if(value)
-      this.user.userGroups.splice(1,0,groupCode);
+      this.user.userGroups.splice(1,0,group);
     else
       this.user.userGroups.splice(index,1);
       
@@ -59,8 +61,6 @@ export class UserComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.user.userRoles=[];
-    this.user.userGroups=[];
     this.loading=true;
     this.newService.getUsers()
     .subscribe(data =>  {

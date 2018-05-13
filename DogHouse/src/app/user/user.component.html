@@ -39,15 +39,15 @@
                     <div class="form-group">
                         Roles:
                         <span *ngFor="let role of roles">
-                                <input type="checkbox" (change)="onRoleChange(role.roleCode, $event.target.checked)" 
-                                 name="role.roleCode" value="role.roleCode" /> {{role.roleName}}
+                                <input type="checkbox" [checked]="role.checked === true" (change)="onRoleChange(role, $event.target.checked)" 
+                                 name="role.roleCode" value="role.roleCode" />{{role.roleName}}
                         </span>
                     </div>
 
                     <div class="form-group">
                         Groups:
                         <span *ngFor="let group of groups">
-                            <input type="checkbox" (change)="onGroupChange(group.groupCode, $event.target.checked)" 
+                            <input type="checkbox" [checked]="group.checked === true" (change)="onGroupChange(group, $event.target.checked)" 
                             name="group.groupCode" value="group.groupCode" /> {{group.groupName}}
                         </span>
                     </div>
