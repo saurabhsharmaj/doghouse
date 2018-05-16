@@ -46,8 +46,19 @@ export class CommonService {
             .map((response: Response) => response.json(),error => { console.error(error)})
   }
 
+  saveGroup(group){
+    return this.http.post('http://localhost:3000/groups/', group)
+            .map((response: Response) =>response.json())
+  }
+
+
   getRoles(){
     return this.http.get('http://localhost:3000/roles/')
             .map((response: Response) => response.json(),error => { console.error(error)})
+  }
+
+  saveRole(role){
+    return this.http.post('http://localhost:3000/roles/', role)
+            .map((response: Response) =>response.json())
   }
 }

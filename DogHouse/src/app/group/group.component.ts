@@ -25,6 +25,11 @@ export class GroupComponent implements OnInit {
 
   saveGroup(group: Group): void {
     console.log(group);
+    this.newService.saveGroup(group)
+    .subscribe(data =>  {
+    this.ngOnInit();
+    alert(group.groupName +' save sucessfully.');
+    });
   }
 
 }

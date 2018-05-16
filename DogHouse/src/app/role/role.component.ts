@@ -27,6 +27,11 @@ export class RoleComponent implements OnInit {
 
   saveRole(role: Role): void {
     console.log(role);
+    this.newService.saveRole(role)
+    .subscribe(data =>  {
+    this.ngOnInit();
+    alert(role.roleName +' save sucessfully.');
+    });
   }
 
 }
