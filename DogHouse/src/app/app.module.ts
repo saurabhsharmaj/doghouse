@@ -32,6 +32,8 @@ const myRoots: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'users', component: UserComponent},
   { path: 'pet', component: PetComponent},
+  { path: 'role', component: RoleComponent},
+  { path: 'group', component: GroupComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
