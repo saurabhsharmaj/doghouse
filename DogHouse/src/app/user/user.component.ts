@@ -49,22 +49,12 @@ export class UserComponent implements OnInit {
       
       this.user=data[0];
       this.groups.forEach(group => {
-        let index = -1;
-        this.user.userGroups.forEach(function(uGroup, i) {
-              if (group.groupCode===uGroup.groupCode ) {
-                index=i;
-              }
-            });
+        let index = this.user.userGroups.findIndex(uGroup => uGroup.groupCode === group.groupCode );
         group.checked = index != -1 ?true:false;
       });
 
       this.roles.forEach(role => {
-        let index = -1;
-        this.user.userRoles.forEach(function(uRole, i) {
-              if (role.roleCode===uRole.roleCode ) {
-                index=i;
-              }
-            });
+        let index = this.user.userRoles.findIndex(uRole => uRole.roleCode === role.roleCode );
         role.checked = index != -1 ? true:false;
       });
     });
