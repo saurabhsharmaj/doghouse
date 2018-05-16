@@ -11,7 +11,7 @@ import { Group } from "../models/group.model";
 })
 export class GroupComponent implements OnInit {
   private groups: Array<Group> = [];
-  user = new User();
+  group = new Group();
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }

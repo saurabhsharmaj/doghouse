@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class RoleComponent implements OnInit {
   private roles: Array<Role> = [];
-  user = new User();
+  role = new Role();
   constructor(private newService :CommonService,
               private myRoute: Router) {
   }

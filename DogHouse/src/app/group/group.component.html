@@ -3,3 +3,46 @@
                 {{ group.groupName }}
         </option>
     </select>
+
+<div class="col-lg-4 col-sm-4 right-block ">
+    <form #regsiterForm="ngForm" (ngSubmit)="saveGroup(group)">
+        <div class="signup-fields">
+            <div class="form-group" [class.has-error]="groupName.invalid && groupName.touched" [class.has-success]="groupName.valid">
+                <input type="text" [(ngModel)]="group.groupName" #userName="ngModel" required name="groupName" class="form-control" placeholder="Group Name">
+                <span class="help-block" *ngIf="groupName.errors?.required && groupName.touched">
+                    group Name is required
+                </span>
+            </div>
+
+            <div class="form-group" [class.has-error]="groupCode.invalid && groupCode.touched" [class.has-success]="groupCode.valid">
+                <input type="text" [(ngModel)]="group.groupCode" #userName="ngModel" required name="groupCode" class="form-control" placeholder="Group Code">
+                <span class="help-block" *ngIf="groupCode.errors?.required && groupCode.touched">
+                    group Name is required
+                </span>
+            </div>
+
+            <div class="form-group" [class.has-error]="description.invalid && description.touched" [class.has-success]="description.valid">
+                <input type="text" [(ngModel)]="group.description" #userName="ngModel" required name="description" class="form-control" placeholder="Description Code">
+                <span class="help-block" *ngIf="description.errors?.required && description.touched">
+                    group Name is required
+                </span>
+            </div>
+
+
+            <div class="form-group" [class.has-error]="groupName.invalid && groupName.touched" [class.has-success]="groupName.valid">
+                <input type="text" [(ngModel)]="group.groupName" #userName="ngModel" required name="groupName" class="form-control" placeholder="Group Name">
+                <span class="help-block" *ngIf="groupName.errors?.required && groupName.touched">
+                    group Name is required
+                </span>
+            </div>
+
+            <div>
+
+                <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">add</button>
+
+                <button class="btn btn-primary btn-block" type="reset">Reset</button>
+
+            </div>
+        </div>
+    </form>
+</div>
