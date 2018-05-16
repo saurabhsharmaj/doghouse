@@ -1,10 +1,23 @@
 ﻿<div class="container" style="margin-top:100px;">
     <div class="col-lg-4 col-sm-4 right-block ">
-        <select multiple name="selectedRoles">
-            <option *ngFor="let role of roles" [ngValue]="role.roleCode">
-                    {{ role.roleName }}
-            </option>
-        </select>
+        <table>
+            <tr>
+                <th>RoleCode</th>
+                <th>RoleName</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let role of roles">
+                <td>{{role.roleCode}}</td>
+                <td>{{ role.roleName }}</td>
+                <td>{{role.description}}</td>
+                <td>
+                    <span><a [routerLink]="" (click)="onEditRole(role._id)">Edit</a></span>
+                    <span><a [routerLink]="" (click)="onDeleteRole(role._id)">Delete</a></span>
+                </td>
+            </tr>
+
+        </table>
     </div>
     <div class="col-lg-4 col-sm-4 right-block ">
         <form #regsiterForm="ngForm" (ngSubmit)="saveRole(role)">

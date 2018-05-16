@@ -38,7 +38,8 @@ export class CommonService {
  deleteUser(id){
     return this.http.delete('http://localhost:3000/users/'+id+"?userId="+id)
             .map((response: Response) =>response.json())
-  }  
+  }
+
   
 
   getGroups(){
@@ -51,6 +52,11 @@ export class CommonService {
             .map((response: Response) =>response.json())
   }
 
+  deleteGroup(id){
+    return this.http.delete('http://localhost:3000/groups/'+id+"?groupId="+id)
+            .map((response: Response) =>response.json())
+  }
+
 
   getRoles(){
     return this.http.get('http://localhost:3000/roles/')
@@ -59,6 +65,11 @@ export class CommonService {
 
   saveRole(role){
     return this.http.post('http://localhost:3000/roles/', role)
+            .map((response: Response) =>response.json())
+  }
+
+  deleteRole(id){
+    return this.http.delete('http://localhost:3000/roles/'+id+"?roleId="+id)
             .map((response: Response) =>response.json())
   }
 }

@@ -34,6 +34,14 @@ export class RoleComponent implements OnInit {
     });
   }
 
+  onDeleteRole(roleId){
+    console.log(roleId);
+    this.newService.deleteRole(roleId).subscribe(data =>  {
+      alert(roleId +" has been deleted.");
+      this.ngOnInit();
+    });
+  }
+
 }
 
 

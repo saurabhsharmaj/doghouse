@@ -32,6 +32,14 @@ export class GroupComponent implements OnInit {
     });
   }
 
+  onDeleteGroup(groupId){
+    console.log(groupId);
+    this.newService.deleteGroup(groupId).subscribe(data =>  {
+      alert(groupId +" has been deleted.");
+      this.ngOnInit();
+    });
+  }
+
 }
 
 

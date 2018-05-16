@@ -1,10 +1,23 @@
 ﻿<div class="container" style="margin-top:100px;">
     <div class="col-lg-4 col-sm-4 right-block ">
-        <select multiple name="selectedTechs">
-        <option *ngFor="let group of groups" [ngValue]="group.groupCode">
-                {{ group.groupName }}
-        </option>
-    </select>
+        <table>
+            <tr>
+                <th>GroupCode</th>
+                <th>GroupName</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let group of groups">
+                <td>{{group.groupCode}}</td>
+                <td>{{ group.groupName }}</td>
+                <td>{{group.description}}</td>
+                <td>
+                    <span><a [routerLink]="" (click)="onEditGroup(group._id)">Edit</a></span>
+                    <span><a [routerLink]="" (click)="onDeleteGroup(group._id)">Delete</a></span>
+                </td>
+            </tr>
+
+        </table>
     </div>
     <div class="col-lg-4 col-sm-4 right-block ">
         <form #regsiterForm="ngForm" (ngSubmit)="saveGroup(group)">
