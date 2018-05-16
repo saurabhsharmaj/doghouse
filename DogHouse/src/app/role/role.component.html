@@ -1,41 +1,43 @@
-﻿<div class="col-lg-4 col-sm-4 right-block ">
-    <select multiple name="selectedRoles" [ngModel]="user.userRoles">
+﻿<div class="container" style="margin-top:100px;">
+    <div class="col-lg-4 col-sm-4 right-block ">
+        <select multiple name="selectedRoles" [ngModel]="user.userRoles">
     <option *ngFor="let role of roles" [ngValue]="role.roleCode">
             {{ role.roleName }}
     </option>
 </select>
-</div>
-<div class="col-lg-4 col-sm-4 right-block ">
-    <form #regsiterForm="ngForm" (ngSubmit)="saveRole(role)">
-        <div class="signup-fields">
-            <div class="form-group" [class.has-error]="roleName.invalid && roleName.touched" [class.has-success]="roleName.valid">
-                <input type="text" [(ngModel)]="role.roleName" #userName="ngModel" required name="roleName" class="form-control" placeholder="Role Name">
-                <span class="help-block" *ngIf="roleName.errors?.required && roleName.touched">
+    </div>
+    <div class="col-lg-4 col-sm-4 right-block ">
+        <form #regsiterForm="ngForm" (ngSubmit)="saveRole(role)">
+            <div class="signup-fields">
+                <div class="form-group" [class.has-error]="roleName.invalid && roleName.touched" [class.has-success]="roleName.valid">
+                    <input type="text" [(ngModel)]="role.roleName" #userName="ngModel" required name="roleName" class="form-control" placeholder="Role Name">
+                    <span class="help-block" *ngIf="roleName.errors?.required && roleName.touched">
                 Role Name is required
             </span>
-            </div>
+                </div>
 
-            <div class="form-group" [class.has-error]="roleCode.invalid && roleCode.touched" [class.has-success]="roleCode.valid">
-                <input type="text" [(ngModel)]="role.roleCode" #userName="ngModel" required name="roleCode" class="form-control" placeholder="Role Code">
-                <span class="help-block" *ngIf="roleCode.errors?.required && roleCode.touched">
+                <div class="form-group" [class.has-error]="roleCode.invalid && roleCode.touched" [class.has-success]="roleCode.valid">
+                    <input type="text" [(ngModel)]="role.roleCode" #userName="ngModel" required name="roleCode" class="form-control" placeholder="Role Code">
+                    <span class="help-block" *ngIf="roleCode.errors?.required && roleCode.touched">
                 Role Code is required
             </span>
-            </div>
+                </div>
 
-            <div class="form-group" [class.has-error]="description.invalid && description.touched" [class.has-success]="description.valid">
-                <input type="text" [(ngModel)]="role.description" #userName="ngModel" required name="description" class="form-control" placeholder="Description Code">
-                <span class="help-block" *ngIf="description.errors?.required && description.touched">
+                <div class="form-group" [class.has-error]="description.invalid && description.touched" [class.has-success]="description.valid">
+                    <input type="text" [(ngModel)]="role.description" #userName="ngModel" required name="description" class="form-control" placeholder="Description Code">
+                    <span class="help-block" *ngIf="description.errors?.required && description.touched">
                 Role Description is required
             </span>
+                </div>
+
+                <div>
+
+                    <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">add</button>
+
+                    <button class="btn btn-primary btn-block" type="reset">Reset</button>
+
+                </div>
             </div>
-
-            <div>
-
-                <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">add</button>
-
-                <button class="btn btn-primary btn-block" type="reset">Reset</button>
-
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
