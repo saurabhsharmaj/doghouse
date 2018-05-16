@@ -23,6 +23,10 @@ export class GroupComponent implements OnInit {
     })
   }
 
+  saveGroup(group: Group): void {
+    console.log(group);
+  }
+
 }
 
 

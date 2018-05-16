@@ -25,6 +25,10 @@ export class RoleComponent implements OnInit {
     })
   }
 
+  saveRole(role: Role): void {
+    console.log(role);
+  }
+
 }
 
 
