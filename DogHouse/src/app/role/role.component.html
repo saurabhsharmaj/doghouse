@@ -20,7 +20,7 @@
         </table>
     </div>
     <div class="col-lg-4 col-sm-4 right-block ">
-        <form #regsiterForm="ngForm" (ngSubmit)="saveRole(role)">
+        <form #roleForm="ngForm" (ngSubmit)="saveRole(role)">
             <div class="signup-fields">
                 <div class="form-group" [class.has-error]="roleName.invalid && roleName.touched" [class.has-success]="roleName.valid">
                     <input type="text" [(ngModel)]="role.roleName" #roleName="ngModel" required name="roleName" class="form-control" placeholder="Role Name">

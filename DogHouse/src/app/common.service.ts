@@ -47,6 +47,11 @@ export class CommonService {
             .map((response: Response) => response.json(),error => { console.error(error)})
   }
 
+  getGroup(groupId){
+    return this.http.get('http://localhost:3000/groups/'+groupId+"?groupId="+groupId)
+            .map((response: Response) => response.json(),error => { console.error(error)})
+  }
+
   saveGroup(group){
     return this.http.post('http://localhost:3000/groups/', group)
             .map((response: Response) =>response.json())
@@ -57,9 +62,19 @@ export class CommonService {
             .map((response: Response) =>response.json())
   }
 
+  updateGroup(group){
+    return this.http.put('http://localhost:3000/groups/'+group._id+"?groupId="+group._id, group)
+            .map((response: Response) =>response.json())
+  }
+
 
   getRoles(){
     return this.http.get('http://localhost:3000/roles/')
+            .map((response: Response) => response.json(),error => { console.error(error)})
+  }
+
+  getRole(roleId){
+    return this.http.get('http://localhost:3000/roles/'+roleId+"?roleId="+roleId)
             .map((response: Response) => response.json(),error => { console.error(error)})
   }
 
@@ -70,6 +85,11 @@ export class CommonService {
 
   deleteRole(id){
     return this.http.delete('http://localhost:3000/roles/'+id+"?roleId="+id)
+            .map((response: Response) =>response.json())
+  }
+
+  updateRole(role){
+    return this.http.put('http://localhost:3000/roles/'+role._id+"?roleId="+role._id, role)
             .map((response: Response) =>response.json())
   }
 }

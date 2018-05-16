@@ -40,6 +40,11 @@ export class GroupComponent implements OnInit {
     });
   }
 
+  onEditGroup(groupId){
+    this.newService.getGroup(groupId).subscribe(data =>  {
+      this.group = data;
+    });
+  }
 }
 
 

@@ -20,7 +20,7 @@
         </table>
     </div>
     <div class="col-lg-4 col-sm-4 right-block ">
-        <form #regsiterForm="ngForm" (ngSubmit)="saveGroup(group)">
+        <form #groupForm="ngForm" (ngSubmit)="saveGroup(group)">
             <div class="signup-fields">
                 <div class="form-group" [class.has-error]="groupName.invalid && groupName.touched" [class.has-success]="groupName.valid">
                     <input type="text" [(ngModel)]="group.groupName" #groupName="ngModel" required name="groupName" class="form-control" placeholder="Group Name">

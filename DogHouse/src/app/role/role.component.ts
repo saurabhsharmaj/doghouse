@@ -42,6 +42,11 @@ export class RoleComponent implements OnInit {
     });
   }
 
+  onEditRole(roleId){
+    this.newService.getRole(roleId).subscribe(data =>  {
+      this.role = data;
+    });
+  }
 }
 
 
