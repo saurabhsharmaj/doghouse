@@ -9,6 +9,11 @@ import 'rxjs/add/operator/do';
 export class CommonService {
 
   constructor(private http: Http) { }
+
+  searchUser(keyword){
+    return this.http.post('http://localhost:3000/users/search?keyword='+keyword, keyword)
+            .map((response: Response) =>response.json())
+  }
   saveUser(user){
     return this.http.post('http://localhost:3000/users/', user)
             .map((response: Response) =>response.json())

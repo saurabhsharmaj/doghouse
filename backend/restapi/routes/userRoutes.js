@@ -2,6 +2,8 @@
 
 module.exports = function(app) {
     var user = require('../controllers/userController');
+    app.route('/users/search')
+        .post(user.search);
     app.route('/users')
         .get(user.users)
         .post(user.add);
@@ -11,4 +13,5 @@ module.exports = function(app) {
         .delete(user.delete);
     app.route('/login')
         .post(user.login);
+
 };

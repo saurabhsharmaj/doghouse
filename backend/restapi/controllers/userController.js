@@ -41,6 +41,19 @@ exports.getuser = function(req, res) {
     });
 };
 
+exports.search = function(req, res) {
+    console.log("Search User : " + req.query.keyword);
+    //var query = { userName: req.query.keyword };
+    var query = { userName: new RegExp('^.*' + req.query.keyword + '.*$', "i") }
+    console.log("query : " + JSON.stringify(query));
+    User.find(query, function(err, user) {
+        if (err)
+            res.send(err);
+        console.log(user);
+        res.json(user);
+    });
+};
+
 exports.update = function(req, res) {
     var id = mongoose.Types.ObjectId(req.query.userId);
     User.findOneAndUpdate({ _id: id }, req.body, { new: true }, function(err, user) {
