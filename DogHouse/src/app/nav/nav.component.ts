@@ -34,7 +34,7 @@ export class NavComponent implements OnInit {
         .distinctUntilChanged()
         .do(_ => this.loading = true)
         .switchMap(term => this.newService.searchUser(term))
-        .do(_ => this.loading = false)
+        .do(_ => this.loading = false);
   }
 
   doSearch(term: string) {
