@@ -10,6 +10,10 @@ export class CommonService {
 
   constructor(private http: Http) { }
 
+  isEmailExist(user){
+    return this.http.post('http://localhost:3000/users/email?emailId='+user.email, user)
+            .map((response: Response) =>response.json())
+  }
   searchUser(keyword){
     return this.http.post('http://localhost:3000/users/search?keyword='+keyword, keyword)
             .map((response: Response) =>response.json())

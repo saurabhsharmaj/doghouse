@@ -26,14 +26,22 @@ export class RegistrationComponent implements OnInit {
   }
 
   register(user: User): void {
-    user.userRoles = [this.defaultRole];
-    user.userGroups = [this.defaultGroup];
-    console.log(user);
-    this.newService.saveUser(user)
-    .subscribe(data =>  {
-      this.myRoute.navigate([ 'login' ]);
-    this.ngOnInit();
-    } );
+    this.newService.isEmailExist(user).toPromise()
+    .then(res => {
+      if(res.length === 0){
+        user.userRoles = [this.defaultRole];
+          user.userGroups = [this.defaultGroup];
+          console.log(user);
+          this.newService.saveUser(user)
+          .subscribe(data =>  {
+            this.myRoute.navigate([ 'login' ]);
+          this.ngOnInit();
+          } );
+      } else {
+        console.log(user.email +" already exist.");
+      }
+      console.log(res);
+    });
   }
 }
 

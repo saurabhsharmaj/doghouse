@@ -31,7 +31,20 @@ exports.login = function(req, res) {
     });
 };
 
+
+exports.searchEmail = function(req, res) {
+    console.log("Check Email id of User : " + req.query.emailId);
+    var query = { email: req.query.emailId }
+    User.find(query, function(err, user) {
+        if (err)
+            res.send(err);
+        console.log(user);
+        res.json(user);
+    });
+};
+
 exports.getuser = function(req, res) {
+
     console.log("Get User : " + req.query.userId + " ## " + mongoose.Types.ObjectId(req.query.userId));
     User.find({ "_id": mongoose.Types.ObjectId(req.query.userId) }, function(err, user) {
         if (err)
