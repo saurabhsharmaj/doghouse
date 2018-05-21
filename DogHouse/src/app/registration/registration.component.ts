@@ -4,6 +4,7 @@ import {CommonService} from '../common.service';
 import {Router} from '@angular/router';
 import { Role } from "../models/role.model";
 import { Group } from "../models/group.model";
+import { getMatScrollStrategyAlreadyAttachedError } from "@angular/cdk/overlay/typings/scroll/scroll-strategy";
 
 @Component({
   selector: 'app-registration',
@@ -25,6 +26,16 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
+  isEmailAlredyExist(event, user){
+    console.log(user);
+    this.newService.isEmailExist(user).toPromise()
+    .then(res => {
+      if(res.length > 0){
+        alert(user.email +" already exist.");
+      }
+      });
+}
+
   register(user: User): void {
     this.newService.isEmailExist(user).toPromise()
     .then(res => {
@@ -38,7 +49,7 @@ export class RegistrationComponent implements OnInit {
           this.ngOnInit();
           } );
       } else {
-        console.log(user.email +" already exist.");
+        alert(user.email +" already exist.");
       }
       console.log(res);
     });
