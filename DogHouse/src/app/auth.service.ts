@@ -1,3 +1,4 @@
+import { User } from './models/user.model';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,7 +7,7 @@ export class AuthService {
 
   constructor(private myRoute: Router) { }
 
-  sendToken(token: string) {
+  sendToken(token: String) {
     localStorage.setItem("LoggedInUser", token)
   }
 
@@ -23,5 +24,8 @@ export class AuthService {
     this.myRoute.navigate(["login"]);
   }
 
+  getUserRole(){
+    return localStorage.getItem("LoggedInUser");
+  }
 
 }

@@ -33,8 +33,11 @@ export class LoginComponent implements OnInit {
       
       this.newService.login(user)
     .subscribe(data =>  {
-        if(data.length > 0 ){
-          this.auth.sendToken(this.form.value.email)
+      this.newService.isEmailExist(user).toPromise().then(res => {  
+        console.log(res[0]);
+      if(data.length > 0 ){
+          res[0].password='';
+          this.auth.sendToken(JSON.stringify(res[0]));
           console.log(data);
           this.myRoute.navigate(["home"]);
           this.ngOnInit();
@@ -43,6 +46,7 @@ export class LoginComponent implements OnInit {
           this.errorMsg="Invalid Username or password.";
           this.ngOnInit();
         }
+      }
     })
 
     }

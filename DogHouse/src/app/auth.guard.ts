@@ -15,10 +15,33 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if(this.auth.isLoggednIn()){
+      let user = JSON.parse(this.auth.getUserRole());
+      let isAdmin=false;
+      for (let index in user.userRoles) {
+        console.log(user.userRoles[index]);
+        if(user.userRoles[index].roleCode ==='admin'){
+          isAdmin= true;
+          break;
+        }
+      }
+      if(isAdmin){
+        this.myRoute.navigate(["adminUser"]);   
+      } else{
+        this.myRoute.navigate(["externalUser"]);
+      }
       return true;
     }else{
       this.myRoute.navigate(["login"]);
       return false;
     }
   }
+
+  isUserHasAdminRole(roles){
+    for (let role in roles) {
+      console.log(role);
+      if(role.roleCode ==='admin')
+      return true;
+    }
+    return false;
+    }
 }
