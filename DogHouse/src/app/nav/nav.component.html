@@ -8,6 +8,8 @@
     <button mat-button routerLink="/pet">Pet</button>
     <button mat-button routerLink="/role">Roles</button>
     <button mat-button routerLink="/group">Groups</button>
+    <button mat-button routerLink="/adminUser">Adminstrator</button>
+    <button mat-button routerLink="/externalUser">External User</button>
     <button mat-button *ngIf="auth.isLoggednIn()" (click)="auth.logout()">Logout</button>
     <form class="form-inline">
         <div class="form-group">

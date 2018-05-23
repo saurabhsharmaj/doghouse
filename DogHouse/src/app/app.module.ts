@@ -1,4 +1,6 @@
-﻿import { CommonService } from './common.service';
+﻿import { ExternalUserGroupComponent } from './externalUserGroup/external.user.group.component';
+import { AdminUserGroupComponent } from './adminUserGroup/admin.user.group.component';
+import { CommonService } from './common.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -34,6 +36,8 @@ const myRoots: Routes = [
   { path: 'pet', component: PetComponent},
   { path: 'role', component: RoleComponent},
   { path: 'group', component: GroupComponent},
+  { path: 'adminUser', component: AdminUserGroupComponent},
+  { path: 'externalUser', component: ExternalUserGroupComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
@@ -50,7 +54,9 @@ const myRoots: Routes = [
     RoleComponent,
     EqualValidatorDirective,
     BookingComponent,
-    HostelComponent
+    HostelComponent,
+    AdminUserGroupComponent,
+    ExternalUserGroupComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
