@@ -46,7 +46,6 @@ export class UserComponent implements OnInit {
   onEditUser(userId){
    
     this.newService.getUser(userId).subscribe(data =>  {
-      
       this.user=data[0];
       this.groups.forEach(group => {
         let index = this.user.userGroups.findIndex(uGroup => uGroup.groupCode === group.groupCode );
