@@ -7,7 +7,7 @@ export class AuthService {
 
   constructor(private myRoute: Router) { }
 
-  sendToken(token: String) {
+  sendToken(token: string) {
     localStorage.setItem("LoggedInUser", token)
   }
 

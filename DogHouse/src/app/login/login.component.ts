@@ -13,8 +13,8 @@ import { User } from '../models/user.model';
 export class LoginComponent implements OnInit {
   user = new User();
   form;
-  errorMsg:String='';
-  constructor(private fb: FormBuilder,private newService :CommonService,
+  errorMsg: String = '';
+  constructor(private fb: FormBuilder, private newService: CommonService,
     private myRoute: Router,
     private auth: AuthService) {
     this.form = fb.group({
@@ -30,26 +30,25 @@ export class LoginComponent implements OnInit {
     console.log(user);
     if (this.form.valid) {
       //check in db.
-      
+
       this.newService.login(user)
-    .subscribe(data =>  {
-      this.newService.isEmailExist(user).toPromise().then(res => {  
-        console.log(res[0]);
-      if(data.length > 0 ){
-          res[0].password='';
-          this.auth.sendToken(JSON.stringify(res[0]));
-          console.log(data);
-          this.myRoute.navigate(["home"]);
-          this.ngOnInit();
-        } else {
-          this.myRoute.navigate(["login"]);
-          this.errorMsg="Invalid Username or password.";
-          this.ngOnInit();
-        }
+                      .subscribe(data =>  {
+                        this.newService.isEmailExist(user)
+                        .toPromise().then(res => {
+                                    console.log(res[0]);
+                                  if ( data.length > 0 ) {
+                                      res[0].password = '';
+                                      this.auth.sendToken(JSON.stringify(res[0]));
+                                      console.log(data);
+                                      this.myRoute.navigate(['home']);
+                                      this.ngOnInit();
+                                    } else {
+                                      this.myRoute.navigate(['login']);
+                                      this.errorMsg = 'Invalid Username or password.';
+                                      this.ngOnInit();
+                                    }
+                                  }, function e(response){})
+                      });
       }
-    })
-
     }
-  }
-
 }
