@@ -35,13 +35,4 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-
-  isUserHasAdminRole(roles){
-    for (let role in roles) {
-      console.log(role);
-      if(role.roleCode ==='admin')
-      return true;
-    }
-    return false;
-    }
 }

@@ -1,7 +1,8 @@
 'use strict';
-
 module.exports = function(app) {
     var user = require('../controllers/userController');
+    app.route('/users/image')
+        .post(user.saveImage);
     app.route('/users/search')
         .post(user.search);
     app.route('/users/email')
